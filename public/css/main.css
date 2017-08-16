@@ -1,0 +1,15 @@
+.damn {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+body {
+  display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+}
+
+.boxes {
+  border: solid
+}
