@@ -6,8 +6,16 @@
     <link rel="stylesheet" href="/css/main.css">
   </head>
   <body>
+
+    <a href="/register">Register</a>
   <section class="damn">
-  {{#data}}
+
+
+
+<div class="wrapper">
+
+
+{{#data}}
   <div class="boxes">
   <div class="pix"><img src="{{avatar}}" alt=""></div>
   <div class="title"><a href="/users/{{id}}"><h5>{{name}}</h5></div></a>
@@ -18,6 +26,8 @@
     </div>
   </div>
   {{/data}}
+</div>
+
   </section>
 
   </body>

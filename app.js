@@ -1,34 +1,30 @@
 const express = require("express")
 const app = express()
+const session = require("express-session")
 const mustache = require("mustache-express")
-const data = require('./data');
-
-
-app.engine('mustache', mustache())
+const mongoose = require("mongoose")
+const MongoClient = require("mongodb")
+const bodyParser = require("body-parser")
+const mongooseSession = require("mongoose-session")
+mongoose.Promise = require("bluebird")
+app.engine("mustache", mustache())
 app.set('views', './views')
-app.set('view engine', 'mustache')
+app.set("view engine", "mustache")
 app.use(express.static("public"))
-app.get("/", function(req, res){
-  res.render("daily",{
-    data: data.users
-  })
-})
+app.use(bodyParser.urlencoded({ extended: false }))
 
-//app.get('/users/:id')
+const url = "mongodb://127.0.0.1:27017/robots"
+mongoose.connect(url)
 
-app.get('/users/:id', function(request, response){
 
-  const robot = parseInt(request.params.id)
-  let lane = false;
-  for (var i = 0; i < data.users.length; i++) {
-    if (data.users[i].id === robot){
-      lane = data.users[i]
-    }
-  }
-  response.render("lane", {
-    lane: lane
-  })
-})
+// app.engine('mustache', mustache())
+//
+// app.set('view engine', 'mustache')
+// app.use(express.static("public"))
+
+const users = require ("./routes/users")
+app.use(users)
+
 
 app.listen(3000, function(){
   console.log("Express started on port 3000")

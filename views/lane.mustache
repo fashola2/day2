@@ -3,21 +3,26 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" href="/css/main1.css">
   </head>
   <body>
     <div class="pix2"><img src="{{lane.avatar}}" alt=""></div>
+<div class="wrapper1">
+<div class="creds">
+
+
     <div class="title"><h1>{{lane.name}}<h1> </div>
       <div class="text"> <p>{{lane.address.city}}, {{lane.address.country}} |
       {{#lane.job}}{{.}} {{/lane.job}}
       {{^lane.job}}Avaliable for Hire{{/lane.job}}
        {{lane.company}} </p>
                           <p>{{lane.email}} | {{lane.phone}}</p></div>
-
-
       <div class="info"><h4>Education</h4> <p>{{lane.university}}</p> </div>
+      </div>
+      
       <div class="info"><h4>Skills</h4> <p>{{lane.skills}}</p>
 
       </div>
-
+</div>
   </body>
 </html>
